@@ -67,7 +67,7 @@
 			<key>defaults</key>
 			<string>me.rhld16.pinkyponk.prefs</string>
 			<key>key</key>
-			<string>pBluetoothEnabled</string>
+			<string>pWifiEnabled</string>
 			<key>label</key>
 			<string>One-tap Wi-fi</string>
 			<key>PostNotification</key>

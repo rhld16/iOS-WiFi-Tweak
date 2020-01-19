@@ -13,8 +13,8 @@
             <string>com.rhld16.pinkyponk</string>
             <key>backgroundGradientColors</key>
             <array>
-                <string>#F2CBCE</string>
-                <string>#F2CBCE</string>
+                <string>#5b7437</string>
+                <string>#5b7437</string>
     		</array>
 		</dict>
 		<dict>
@@ -53,7 +53,7 @@
 			<key>defaults</key>
 			<string>me.rhld16.pinkyponk.prefs</string>
 			<key>key</key>
-			<string>pBluetoothEnabled</string>
+			<string>pBlueTap</string>
 			<key>label</key>
 			<string>One-tap Bluetooth</string>
 			<key>PostNotification</key>
@@ -67,7 +67,7 @@
 			<key>defaults</key>
 			<string>me.rhld16.pinkyponk.prefs</string>
 			<key>key</key>
-			<string>pWifiEnabled</string>
+			<string>pWifiTap</string>
 			<key>label</key>
 			<string>One-tap Wi-fi</string>
 			<key>PostNotification</key>

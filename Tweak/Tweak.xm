@@ -1,4 +1,12 @@
 #import <Cephei/HBPreferences.h>
+#include <dlfcn.h>
+
+BOOL pEnabled;
+BOOL pWifiTap;
+BOOL pBlueTap;
+
+HBPreferences *preferences;
+NSMutableDictionary *iconDictionary = [[NSMutableDictionary alloc] init];
 
 @interface BluetoothManager : NSObject
 @end
@@ -6,11 +14,7 @@
 @interface BluetoothManager (Addition)
 @property(assign) BOOL ignoreAirplaneModeCheck;
 @end
-
-// By default, when we turn bluetooth off: 3 -> 2
-// What we want: 3 -> 1 and power off bluetooth
-// By ensuring that airplane mode is turned on, we already satisfy the requirement above so...
-
+%group BlueTap
 %hook BluetoothManager
 
 %property(assign) BOOL ignoreAirplaneModeCheck;
@@ -31,7 +35,8 @@
 }
 
 %end
-
+%end
+%group WifiTap
 @interface WFWiFiStateMonitor : NSObject
 @end
 
@@ -60,9 +65,38 @@
 }
 
 %end
+%end
+void reloadPrefs() {
+	NSLog(@"[PinkyPonk] (reloadPrefs) (DEBUG) Reloading Preferences...");
+
+	preferences = [[HBPreferences alloc] initWithIdentifier:@"me.rhld16.pinkyponk.prefs"];
+
+  [preferences registerDefaults:@{
+        @"pEnabled": @YES,
+        @"pBlueTap": @YES,
+        @"pWifiTap": @YES
+  }];
+
+	[preferences registerBool:&pEnabled default:YES forKey:@"pEnabled"];
+	[preferences registerBool:&pBlueTap default:YES forKey:@"pBlueTap"];
+	[preferences registerBool:&pWifiTap default:YES forKey:@"pWifiTap"];
+
+	NSLog(@"[PinkyPonk] (reloadPrefs) (DEBUG) Current Enabled State: %i", pEnabled);
+	NSLog(@"[PinkyPonk] (reloadPrefs) (DEBUG) Bluetooth: %i", pBlueTap);
+  NSLog(@"[PinkyPonk] (reloadPrefs) (DEBUG) Wifi: %i", pWifiTap);
+}
 
 %ctor {
+	reloadPrefs();
+  CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)reloadPrefs, CFSTR("me.rhld16.pinkyponk.prefs/ReloadPrefs"), NULL, kNilOptions);
     dlopen("/System/Library/PrivateFrameworks/BluetoothManager.framework/BluetoothManager", RTLD_LAZY);
     dlopen("/System/Library/PrivateFrameworks/WiFiKit.framework/WiFiKit", RTLD_LAZY);
-    %init;
+    if (pEnabled && pBlueTap == YES) {
+		%init(BlueTap);
+	} else  {
+	}
+    if (pEnabled && pWifiTap == YES) {
+		%init(WifiTap);
+	} else  {
+	}
 }

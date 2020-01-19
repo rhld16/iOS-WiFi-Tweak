@@ -1,8 +1,9 @@
 include $(THEOS)/makefiles/common.mk
-
+TARGET = iphone:latest:11.0
+ARCHS = arm64 arm64e
 GO_EASY_ON_ME=1
 
-PACKAGE_VERSION = $(THEOS_PACKAGE_BASE_VERSION)
+PACKAGE_VERSION = 1.0
 
 SUBPROJECTS += Tweak Prefs
 

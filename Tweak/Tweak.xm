@@ -65,17 +65,3 @@ if ([self.title isEqualToString:[[NSBundle bundleWithPath:@"/System/Library/Cont
     return %orig;
 }
 %end
-
-%ctor {
-	reloadPrefs();
-
-	NSString *notificationControllerClass = @"SBDashBoardNotificationAdjunctListViewController";
-
-	if(@available(iOS 13.0, *)) {
-		notificationControllerClass = @"CSNotificationAdjunctListViewController";
-	}
-
-	%init(group, NotificationController = NSClassFromString(notificationControllerClass));
-
-	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)reloadPrefs, CFSTR("me.rhld16.pinkyponk.prefs/ReloadPrefs"), NULL, kNilOptions);
-}

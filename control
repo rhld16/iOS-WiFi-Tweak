@@ -7,3 +7,4 @@ Description: An easy way to toggle wifi and bluetooth one tap
 Maintainer: rhld16
 Author: rhld16
 Section: Tweaks
+Conflicts: com.jakeashacks.realcc, com.ps.cconandoff

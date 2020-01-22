@@ -5,26 +5,26 @@
 	<key>items</key>
 	<array>
 		<dict>
-            <key>cell</key>
-            <string>PSGroupCell</string>
-            <key>headerCellClass</key>
-            <string>HBPackageNameHeaderCell</string>
-            <key>packageIdentifier</key>
-            <string>com.rhld16.pinkyponk</string>
-            <key>backgroundGradientColors</key>
-            <array>
-                <string>#449a6e</string>
-                <string>#449a6e</string>
-    		</array>
+			<key>backgroundGradientColors</key>
+			<array>
+				<string>#449a6e</string>
+				<string>#449a6e</string>
+			</array>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>headerCellClass</key>
+			<string>HBPackageNameHeaderCell</string>
+			<key>packageIdentifier</key>
+			<string>com.rhld16.pinkyponk</string>
 		</dict>
 		<dict>
-            <key>cellClass</key>
-            <string>HBTwitterCell</string>
-            <key>label</key>
-            <string>Twitter</string>
-            <key>user</key>
-            <string>rhld16</string>
-        </dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>label</key>
+			<string>Twitter</string>
+			<key>user</key>
+			<string>rhld16</string>
+		</dict>
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -32,6 +32,8 @@
 			<string>Config</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -42,14 +44,14 @@
 			<string>pEnabled</string>
 			<key>label</key>
 			<string>Enabled</string>
-			<key>PostNotification</key>
-	        <string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -60,10 +62,10 @@
 			<string>pBlueTap</string>
 			<key>label</key>
 			<string>One-tap Bluetooth</string>
-			<key>PostNotification</key>
-	        <string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -74,8 +76,12 @@
 			<string>pWifiTap</string>
 			<key>label</key>
 			<string>One-tap Wi-fi</string>
-			<key>PostNotification</key>
-	        <string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Enabled “One-tap” on either Wi-Fi or Bluetooth means that when you press them in your Control Center they will fully switch off instead of going into standby mode.</string>
 		</dict>
 	</array>
 	<key>title</key>

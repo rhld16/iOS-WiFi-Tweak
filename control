@@ -1,9 +1,9 @@
 Package: com.rhld16.pinkyponk
 Name: Pinky Ponk
 Depends: mobilesubstrate, preferenceloader, ws.hbang.common (>= 1.14)
-Version: 0.0.1
+Version: 1.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: An easy way to toggle wifi and bluetooth one tap
 Maintainer: rhld16
 Author: rhld16
 Section: Tweaks

@@ -13,8 +13,8 @@
             <string>com.rhld16.pinkyponk</string>
             <key>backgroundGradientColors</key>
             <array>
-                <string>#5b7437</string>
-                <string>#5b7437</string>
+                <string>#449a6e</string>
+                <string>#449a6e</string>
     		</array>
 		</dict>
 		<dict>
@@ -44,6 +44,10 @@
 			<string>Enabled</string>
 			<key>PostNotification</key>
 	        <string>me.rhld16.pinkyponk.prefs/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
 		</dict>
 		<dict>
 			<key>cell</key>
